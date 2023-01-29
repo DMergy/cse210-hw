@@ -10,7 +10,6 @@ class Journal
     {
         Console.WriteLine($"Saving journal entry to {file}.");
     }
-
     public void Load(string file)
     {
         Console.WriteLine("Loading journal entry.");
