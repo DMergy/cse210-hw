@@ -4,15 +4,84 @@ class Program
 {
     static void Main(string[] args)
     {
+        Journal myJournal = new Journal();
+        promptGenerator generator = new promptGenerator();
         
-        
-        Console.WriteLine($"menu");
-        
+        Console.WriteLine("Welcome to your personal journal.");
 
+        string choice = "";
+
+        while (choice != "5")
+        {
+            DisplayMenu();
+            Console.WriteLine("Choose your action(s) from the list below: ");
+            choice = Console.ReadLine();
+
+            if (choice == "1")
+            {
+                Console.WriteLine("Enter your thoughts for today.");
+                //display(promptGenerator.getRandomPrompt);
+                string prompt = generator.getRandomPrompt();
+                Console.WriteLine(prompt);
+
+                Console.Write("> ");
+                string entry = Console.ReadLine();
+
+                //get current date and save as string
+                string date = "27 January 2023";
+
+                Entry dailyThoughts = new Entry();
+                dailyThoughts._date = date;
+                dailyThoughts._prompt = prompt;
+                dailyThoughts._text = response;
+
+                myJournal.AddEntry(dailyThoughts);
+            }
+            else if (choice == "2")
+    
+                
+                myJournal.Display();
+                
+                //journal.addEntry()
+                //entry.display();
+            }
+            else if (choice == "3")
+            {
+                
+                myJournal.Load();
+                
+            }
+            else if (choice == "4")
+            {
+                Console.Write("What file would you like to save to? ");
+                string file = Console.ReadLine();
+
+                myJournal.Save(file);
+                
+        
+            }
+        }
+    }
+    
+    static void DisplayMenu()
+    {
+        Console.WriteLine("1. Write");
+        Console.WriteLine("2. Display");
+        Console.WriteLine("3. Load");
+        Console.WriteLine("4. Save");
+        Console.WriteLine("5. Quit");    
 
     }
+
 }
 
+
+
+
+
+
+
+    
 
 
 
